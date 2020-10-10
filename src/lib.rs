@@ -1,3 +1,5 @@
+#![feature(min_const_generics)]
+
 mod field;
 mod group;
 mod operators;
@@ -8,6 +10,9 @@ mod ring;
 mod tests {
     #[test]
     fn it_works() {
-        assert_eq!(2 + 2, 4);
+        type Z11 = crate::group::CyclicGroupElement<11>;
+        let a = Z11::new(18);
+        let b = Z11::new(8);
+        panic!("{}", (&a) * (&b));
     }
 }
