@@ -6,4 +6,6 @@ pub trait BinaryOperator<S> {
 pub trait InvertibleBinaryOperator<S>: BinaryOperator<S> {
     fn get_inverse(element: &S) -> S;
 }
-pub unsafe trait InvertibleAbelianBinaryOperator<S>: InvertibleBinaryOperator<S> {}
+pub trait AbelianBinaryOperator<S>: BinaryOperator<S> {}
+
+pub trait InvertibleAbelianBinaryOperator<S> = InvertibleBinaryOperator<S> + AbelianBinaryOperator<S>;

@@ -1,4 +1,5 @@
 #![feature(min_const_generics)]
+#![feature(trait_alias)]
 
 mod field;
 mod group;
@@ -13,6 +14,6 @@ mod tests {
         type Z11 = crate::group::CyclicGroupElement<11>;
         let a = Z11::new(18);
         let b = Z11::new(8);
-        panic!("{}", (&a) * (&b));
+        assert_eq!(&a*&b, Z11::new(4));
     }
 }
